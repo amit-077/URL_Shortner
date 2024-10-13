@@ -25,7 +25,7 @@ def shortURL(new_url: URL):
     subLink = str(shortuuid.ShortUUID().random(length=8))
     data = collection.insert_one({"sublink": subLink, "redirectTo": originalURL})
     print(data.inserted_id)
-    return {"url": new_url.website_URL}
+    return {"shorturl": "rbly.vercel.app/"+subLink}
 
 @app.get("/getAllUrls")
 def getAllData():
