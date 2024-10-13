@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from configurations import collection
-from schemas import getLink
+from api.configurations import collection
+from api.schemas import getLink
 from fastapi.responses import RedirectResponse
 import shortuuid
 
