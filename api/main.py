@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+import uvicorn
 from api.configurations import collection
 from api.schemas import getLink
 from fastapi.responses import RedirectResponse
@@ -14,6 +15,9 @@ class URL(BaseModel):
 @app.get("/")
 def read_root():
     return {"message": "URL shortner is working"}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
 
 @app.post("/shorturl")
 def shortURL(new_url: URL):
